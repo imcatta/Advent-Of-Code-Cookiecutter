@@ -9,7 +9,7 @@ def create_empty_file(filepath: str):
 
 def generate_solution_files():
     for i in range(1, 26):
-        answers_path = abspath(f'./advent_of_Code/data/answers')
+        answers_path = abspath(f'./advent_of_code/data/answers')
         day_path = join(answers_path, f"day_{i}")
         if not exists(day_path):
             mkdir(day_path)
@@ -19,7 +19,7 @@ def generate_solution_files():
 
 def generate_input_files():
     for i in range(1, 26):
-        create_empty_file(abspath(f'./advent_of_Code/data/input/day_{i}'))
+        create_empty_file(abspath(f'./advent_of_code/data/input/day_{i}'))
 
         389
 
@@ -28,7 +28,7 @@ def generate_test_files():
     for i in range(1, 26):
         with open(abspath(f"./templates/test.tmpl")) as f:
             template = Template(f.read())
-        with open(abspath(f"./advent_of_Code/challenges/tests/test_day_{i}.py"), "w+") as f:
+        with open(abspath(f"./advent_of_code/challenges/tests/test_day_{i}.py"), "w+") as f:
             f.write(template.render(day=i))
 
 
@@ -36,7 +36,7 @@ def generate_challenge_files():
     for i in range(1, 26):
         with open(abspath(f"./templates/challenge.tmpl")) as f:
             template = Template(f.read())
-        with open(abspath(f"./advent_of_Code/challenges/day_{i}.py"), "w+") as f:
+        with open(abspath(f"./advent_of_code/challenges/day_{i}.py"), "w+") as f:
             f.write(template.render(day=i))
 
 
