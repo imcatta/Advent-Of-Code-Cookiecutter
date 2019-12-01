@@ -5,11 +5,22 @@ INPUT = load_input(1)
 
 
 def part1():
-    return "Challenge not solved"
+    return sum(map(lambda x: int(x) // 3 - 2, INPUT))
 
 
 def part2():
-    return "Challenge not solved"
+    def func(x):
+        x = int(x)
+        total_fuel = x // 3 - 2
+        extra_fuel = max(0, total_fuel // 3 - 2)
+
+        while extra_fuel:
+            total_fuel += extra_fuel
+            extra_fuel = max(0, extra_fuel // 3 - 2)
+
+        return total_fuel
+
+    return sum(map(func, INPUT))
 
 
 if __name__ == "__main__":
